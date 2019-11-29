@@ -1,0 +1,23 @@
+nav{
+	background:#155396;
+}
+
+footer{
+    background: #212121;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  
+}
+  
+footer img{
+    height: 60px;
+    border-radius:100px;
+}
+  
+.imagenav{
+    border-radius:150px;
+}

@@ -1,0 +1,37 @@
+{
+    "name": "app entel",
+    "short_name" :"entel",
+    "start_url": "/entel.html",
+    "display": "standalone",
+    "background_color": "#2980B9",
+    "theme_color": "#CACFD2",
+    "orientation": "portrait-primary",
+    "icons":[
+        {
+            "src":"iconos/bolsa.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src":"iconos/business.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src":"iconos/chat_person.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src":"iconos/chat.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src":"iconos/confi.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        }
+    ]
+
+}
