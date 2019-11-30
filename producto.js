@@ -28,6 +28,5 @@ function obtenerDatos(){
     }
 }
 
- 	
 
 
