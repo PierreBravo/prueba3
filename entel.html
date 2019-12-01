@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
     <title>Entel</title>
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
@@ -46,6 +49,30 @@
       .then(function(){
         console.log("el usuario ha aceptado recibir notificaciones")
 
+        return messaging.getToken();
+
+      })
+      .then(function(token){
+        console.log(token);
+
+        fetch('/guardar-token',{
+          method:'post',
+          headers:{
+            'Content-type':'application/json',
+          },
+          body:JSON.stringify({
+            'token':token
+          })
+        })
+        .then(function(resultado){
+          console.log('se ha guardado el token')
+        })
+        .catch(function(e){
+          console.log("no se guardo token")
+        })
+
+
+
       })
       .catch(function(e){
         console.log('el usuario no ha aceptado :c')
@@ -53,6 +80,19 @@
       })
 
     })
+
+    //recepcion de notf push
+    messaging.onMessage(function(payload){
+      let title ='titulo de la notificacion';
+
+      let options ={
+        body:'mensaje'
+      }
+
+      let mensaje = new Notification(title, options);
+      
+
+    });
 
 
 
@@ -69,7 +109,7 @@
                  
               <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                  <div class="navbar-nav mr-auto ml-auto text-center">
-                  <a class="nav-item nav-link" href=""></a>
+                  <a class="nav-item nav-link" href="">Inicio</a>
                   <a class="nav-item nav-link active" href=""></a>
                   <a class="nav-item nav-link" href=""></a>
                   <a class="nav-item nav-link " href=""></a>
@@ -84,7 +124,7 @@
 <ul class="list-group">
       <li class="list-group-item active">Lista de productos</li>
       <li class="list-group-item" id="resultado">Productos en venta</li>
-      <li class="list-group-item">Morbi leo risus</li>
+      <li class="list-group-item"></li>
       <div class="section">
         <button id="producto" type="button" class="btn btn-primary">Listar Productos</button>
  </div>
@@ -93,10 +133,6 @@
       <img src="https://thumb.bibliocad.com/images/content/00120000/2000/122963.jpg" alt="logo">
       Derechos de Autor - 2019| desarrollo web y movil
      </footer>
-       
-    
-    
-
 
 
   <script src="producto.js"></script>
