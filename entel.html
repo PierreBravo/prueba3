@@ -10,6 +10,53 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="shortcut icon" class="imagenav" type="imagen/jpg"href="https://149362309.v2.pressablecdn.com/wp-content/uploads/2018/12/Entel-logo.png">
     <link rel="manifest" href="manifest.json"> 
+    <meta name="theme-color" content="#5590B3">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>
+
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+   // Your web app's Firebase configuration
+    var firebaseConfig = {
+     apiKey: "AIzaSyCgwnTdAGACqHh3fT8JWkxIczHaNXTuwo4",
+     authDomain: "entel-38eed.firebaseapp.com",
+     databaseURL: "https://entel-38eed.firebaseio.com",
+     projectId: "entel-38eed",
+     storageBucket: "entel-38eed.appspot.com",
+     messagingSenderId: "556000700712",
+     appId: "1:556000700712:web:4ccd9844b7713c0baa881d"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    let messaging = firebase.messaging();
+
+    //enlazar el serviceworker
+    navigator.serviceWorker
+    .register('./serviceworker.js')
+    .then(function(register){
+      messaging.useServiceWorker(register);
+
+      //solicitar permiso para recibir notificaciones
+      messaging.requestPermission()
+      .then(function(){
+        console.log("el usuario ha aceptado recibir notificaciones")
+
+      })
+      .catch(function(e){
+        console.log('el usuario no ha aceptado :c')
+
+      })
+
+    })
+
+
+
+  </script>
 </head>
 <body>
         <nav class="navbar navbar-light navbar-expand-sm">

@@ -25,12 +25,12 @@
         {
             "src":"iconos/chat.png",
             "type": "image/png",
-            "sizes": "72x72"
+            "sizes": "192x192"
         },
         {
             "src":"iconos/confi.png",
             "type": "image/png",
-            "sizes": "72x72"
+            "sizes": "512x72"
         }
     ]
 
